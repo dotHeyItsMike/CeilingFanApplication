@@ -85,11 +85,11 @@ public class CeilingFanMainScreen extends javax.swing.JFrame {
         lblDirection.setText("Direction: ");
 
         btnSpeedUp.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        btnSpeedUp.setText("Speed");
+        btnSpeedUp.setLabel("Change Speed");
         btnSpeedUp.setName("btnSpeedUp"); // NOI18N
         btnSpeedUp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                speedUp(evt);
+                changeSpeed(evt);
             }
         });
 
@@ -98,7 +98,7 @@ public class CeilingFanMainScreen extends javax.swing.JFrame {
         btnSlowDown.setName("btnSlowDown"); // NOI18N
         btnSlowDown.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                slowDown(evt);
+                changeDirection(evt);
             }
         });
 
@@ -159,7 +159,7 @@ public class CeilingFanMainScreen extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void speedUp(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_speedUp
+    private void changeSpeed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeSpeed
         try
         {
             //if max speed, set 'off'
@@ -167,7 +167,7 @@ public class CeilingFanMainScreen extends javax.swing.JFrame {
             if(speed == 3)
                 speed = 0;
             else
-                speed += 1;
+                speed++;
             
             //only start thread if it's not already started
             if(!t.isAlive()){
@@ -179,9 +179,9 @@ public class CeilingFanMainScreen extends javax.swing.JFrame {
         } catch(Exception ex) {
             JOptionPane.showMessageDialog(null, "Errors Ahoy!");
         }
-    }//GEN-LAST:event_speedUp
+    }//GEN-LAST:event_changeSpeed
 
-    private void slowDown(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_slowDown
+    private void changeDirection(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeDirection
          try
         {
             //logic to know what direction to set the fan
@@ -198,7 +198,7 @@ public class CeilingFanMainScreen extends javax.swing.JFrame {
         } catch(Exception ex) {
             JOptionPane.showMessageDialog(null, "Errors Ahoy!");
         }
-    }//GEN-LAST:event_slowDown
+    }//GEN-LAST:event_changeDirection
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
